@@ -1,0 +1,37 @@
+---
+layout: default
+title: Fixie
+---
+<img src="images/fixie.png"/>
+
+Conventional Testing for .NET
+
+Fixie lets you describe what your tests look like, and how to run them.
+
+```cs
+public class IntegrationTestConvention : Convention
+{
+    public IntegrationTestConvention()
+    {
+        Classes
+            .NameEndsWith("Tests");
+
+        Methods
+            .Where(method => method.IsVoid());
+
+        FixtureExecution
+            .Wrap<Transaction>();
+    }
+
+    class Transaction : FixtureBehavior
+    {
+        public void Execute(Fixture context, Action next)
+        {
+            using (new TransactionScope())
+                next();
+        }
+    }
+}
+```
+1. [GitHub](https://github.com/plioi/fixie)
+2. [Docs](https://github.com/plioi/fixie/blob/master/README.md)
