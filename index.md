@@ -8,7 +8,7 @@ Conventional Testing for .NET
 
 Fixie lets you describe what your tests look like, and how to run them.
 
-```cs
+{% highlight cs %}
 public class IntegrationTestConvention : Convention
 {
     public IntegrationTestConvention()
@@ -32,6 +32,7 @@ public class IntegrationTestConvention : Convention
         }
     }
 }
-```
+{% endhighlight %}
+
 1. [GitHub](https://github.com/plioi/fixie)
 2. [Docs](https://github.com/plioi/fixie/blob/master/README.md)
