@@ -2,7 +2,7 @@
 layout: default
 title: Fixie
 ---
-<img src="images/fixie.png"/>
+<img src="images/fixie_256.png"/>
 
 Conventional Testing for .NET
 
