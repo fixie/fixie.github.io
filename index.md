@@ -38,7 +38,9 @@ public class IntegrationTestConvention : Convention
 2. [Docs](https://github.com/plioi/fixie/blob/master/README.md)
 
 ---
+
 <section>
+
 # Default Convention
 
 ## I just want to write a test.
@@ -61,4 +63,5 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
+
 </section>
