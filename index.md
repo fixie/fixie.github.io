@@ -39,8 +39,6 @@ public class IntegrationTestConvention : Convention
 
 ---
 
-<section>
-
 # Default Convention
 
 ## I just want to write a test.
@@ -63,5 +61,3 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
-
-</section>
