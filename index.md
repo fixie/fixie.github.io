@@ -36,3 +36,29 @@ public class IntegrationTestConvention : Convention
 
 1. [GitHub](https://github.com/plioi/fixie)
 2. [Docs](https://github.com/plioi/fixie/blob/master/README.md)
+
+---
+<section>
+# Default Convention
+
+## I just want to write a test.
+
+In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'.
+
+{% highlight csharp %}
+public class CalculatorTests
+{
+    public void ShouldAdd()
+    {
+        var calculator = new Calculator();
+        calculator.Add(2, 3).ShouldEqual(5);
+    }
+
+    public void ShouldSubtract()
+    {
+        var calculator = new Calculator();
+        calculator.Subtract(5, 3).ShouldEqual(2);
+    }
+}
+{% endhighlight %}
+</section>
