@@ -3,12 +3,9 @@ layout: default
 title: Fixie
 ---
 <div class="sixteen columns">
-
-# Default Convention
-
-## I just want to write a test.
-
-In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'.
+<h1>Default Convention</h1>
+<h2>I just want to write a test.</h2>
+<p>In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'.</p>
 
 {% highlight csharp %}
 public class CalculatorTests
@@ -26,18 +23,14 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
-
 </div>
 
----
+<hr/>
 
 <div class="sixteen columns">
-
-# No Built-In Assertions
-
-## That doesn't even compile! What is this, amateur hour?
-
-Oh, right. Fixie has no built-in assertion library and never will. This example works when you use the third-party Should library.
+<h1>No Built-In Assertions</h1>
+<h2>That doesn't even compile! What is this, amateur hour?</h2>
+<p>Oh, right. Fixie has no built-in assertion library and never will. This example works when you use the third-party Should library.<p>
 
 {% highlight csharp %}
 using Should;
@@ -57,18 +50,14 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
-
 </div>
 
----
+<hr />
 
 <div class="sixteen columns">
-
-# Custom Conventions
-
-## But I'm used to NUnit and I like having explicit [Test] attributes.
-
-Tell Fixie what your tests look like, by including a custom convention in your test project. It'll supercede the default convention. With this convention in place, Fixie will only recognize [Test] methods as tests.
+<h1>Custom Conventions</h1>
+<h2>But I'm used to NUnit and I like having explicit [Test] attributes.</h2>
+<p>Tell Fixie what your tests look like, by including a custom convention in your test project. It'll supercede the default convention. With this convention in place, Fixie will only recognize [Test] methods as tests.</p>
 
 {% highlight csharp %}
 //CustomConvention.cs
@@ -112,18 +101,14 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
-
 </div>
 
----
+<hr />
 
 <div class="sixteen columns">
-
-# Setup and Teardown
-
-## But I miss NUnit's [SetUp] and [TearDown], too. What if I want to prepare the system under test in one place, and clean up after it after the tests?
-
-Like xUnit.NET, Fixie's default is to construct one instance of your test class for each test.  The constructor is your setup, and Dispose() is your teardown.
+<h1>Setup and Teardown</h1>
+<h2>But I miss NUnit's [SetUp] and [TearDown], too. What if I want to prepare the system under test in one place, and clean up after it after the tests?</h2>
+<p>Like xUnit.NET, Fixie's default is to construct one instance of your test class for each test.  The constructor is your setup, and Dispose() is your teardown.</p>
 
 {% highlight csharp %}
 using System;
@@ -156,15 +141,12 @@ public class CalculatorTests : IDisposable
 {% endhighlight %}
 </div>
 
----
+<hr />
 
 <div class="sixteen columns">
-
-# Construction Frequency
-
-## It reconstructs the class for every test!? What if I have costly state that could be shared across all the test in the class?
-
-Your custom convention can declare that construction of the test classes should happen once per class. Then the constructor is like NUnit's [FixtureSetUp] while the Dispose() method is like NUnit's [FixtureTearDown].
+<h1>Construction Frequency</h1>
+<h2>It reconstructs the class for every test!? What if I have costly state that could be shared across all the test in the class?</h2>
+<p>Your custom convention can declare that construction of the test classes should happen once per class. Then the constructor is like NUnit's [FixtureSetUp] while the Dispose() method is like NUnit's [FixtureTearDown].</p>
 
 {% highlight csharp %}
 using Fixie;
