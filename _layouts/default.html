@@ -13,10 +13,15 @@
   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
   <style>
-    #nav li {
-	    display: inline;
-	    margin: 0 20px 0 0;
-	    margin-bottom: 130px;
+    #navigation li {
+    	display: inline;
+    	margin: 0 20px 0 0;
+    	margin-bottom: 130px;
+    }
+    
+    #banner {
+    	background-color: black;
+    	color: white;
     }
   </style>
 
@@ -26,7 +31,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="sixteen columns">
+    <div id="navigation" class="sixteen columns">
       <ul>
         <li><a href="https://github.com/plioi/fixie">github</a></li>
         <li><a href="http://www.nuget.org/packages/fixie">nuget</a></li>
@@ -34,11 +39,11 @@
       </ul>
     </div>
 
-    <div class="four columns">
+    <div id="banner" class="four columns">
       <img src="images/fixie_256.png" width="200" height="200" />
     </div>
     <div class="twelve columns">
-      Conventional Testing for .NET
+      <h1>Conventional Testing for .NET</h1>
     </div>
 
     {{ content }}
