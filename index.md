@@ -3,6 +3,7 @@ layout: default
 title: Fixie
 ---
 <div class="sixteen columns">
+
 # Default Convention
 
 ## I just want to write a test.
@@ -28,6 +29,7 @@ public class CalculatorTests
 </div>
 ---
 <div class="sixteen columns">
+
 # No Built-In Assertions
 
 ## That doesn't even compile! What is this, amateur hour?
@@ -55,6 +57,7 @@ public class CalculatorTests
 </div>
 ---
 <div class="sixteen columns">
+
 # Custom Conventions
 
 ## But I'm used to NUnit and I like having explicit [Test] attributes.
@@ -106,6 +109,7 @@ public class CalculatorTests
 </div>
 ---
 <div class="sixteen columns">
+
 # Setup and Teardown
 
 ## But I miss NUnit's [SetUp] and [TearDown], too. What if I want to prepare the system under test in one place, and clean up after it after the tests?
@@ -144,6 +148,7 @@ public class CalculatorTests : IDisposable
 </div>
 ---
 <div class="sixteen columns">
+
 # Construction Frequency
 
 ## It reconstructs the class for every test!? What if I have costly state that could be shared across all the test in the class?
