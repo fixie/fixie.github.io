@@ -26,8 +26,11 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
+
 </div>
+
 ---
+
 <div class="sixteen columns">
 
 # No Built-In Assertions
@@ -54,8 +57,11 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
+
 </div>
+
 ---
+
 <div class="sixteen columns">
 
 # Custom Conventions
@@ -106,8 +112,11 @@ public class CalculatorTests
     }
 }
 {% endhighlight %}
+
 </div>
+
 ---
+
 <div class="sixteen columns">
 
 # Setup and Teardown
@@ -146,7 +155,9 @@ public class CalculatorTests : IDisposable
 }
 {% endhighlight %}
 </div>
+
 ---
+
 <div class="sixteen columns">
 
 # Construction Frequency
