@@ -19,8 +19,9 @@
     	margin-bottom: 130px;
     }
     
-    .header {
+    #header {
       background-color: black;
+      height: 210px;
     }
     
     .user {
@@ -42,12 +43,13 @@
       </ul>
     </div>
     
-    <div class="header eight columns">
-      <img src="images/fixie_256.png" width="200" height="200" />
-      
-    </div>
-    <div class="header eight columns">
-      <h3 style="color: white;">Conventional Testing for .NET</h3>
+    <div id="header">
+      <div class="eight columns">
+        <img src="images/fixie_256.png" width="200" height="200" />
+      </div>
+      <div class="eight columns">
+        <h3 style="color: white;">Conventional Testing for .NET</h3>
+      </div>
     </div>
     <hr />
     {{ content }}
