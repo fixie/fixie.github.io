@@ -19,6 +19,11 @@
     	margin-bottom: 130px;
     }
     
+    #header {
+      background-color: black;
+      color: white;
+    }
+    
     .user {
       font-weight: bold;
     }
@@ -37,12 +42,31 @@
         <li><a href="https://github.com/plioi/fixie/blob/master/README.md">docs (nightly)</a></li>
       </ul>
     </div>
+    
+    <div id="header">
+      <div class="four columns">
+        <img src="images/fixie_256.png" width="200" height="200" />
+        <p>Conventional Testing for .NET</p>
+      </div>
+      <div class="twelve columns">
+{% highlight csharp %}
+Classes
+    .NameEndsWith("Tests");
 
-    <div class="four columns">
-      <img src="images/fixie_256.png" width="200" height="200" />
-    </div>
-    <div class="twelve columns">
-      <h1>Conventional Testing for .NET</h1>
+Methods
+    .Where(method => method.IsVoid());
+
+ClassExecution
+    .CreateInstancePerCase()
+    .UsingFactory(Container.GetInstance);
+
+CaseExecution
+    .Wrap<ResetDatabase>();
+
+Parameters
+    .Add<FromAutoFixture>();
+{% endhighlight %}
+      </div>
     </div>
     <hr />
     {{ content }}
