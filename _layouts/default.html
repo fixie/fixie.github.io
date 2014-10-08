@@ -21,7 +21,6 @@
     
     .header {
       background-color: black;
-      color: white;
     }
     
     .user {
@@ -45,24 +44,10 @@
     
     <div class="header eight columns">
       <img src="images/fixie_256.png" width="200" height="200" />
-      <h3>Conventional Testing for .NET</h3>
+      
     </div>
-    <div class="eight columns">
-{% highlight csharp %}
-public IntegrationTestConvention
-{
-  Classes.NameEndsWith("Tests");
-  
-  Methods.Where(method => method.IsVoid());
-  
-  ClassExecution.CreateInstancePerCase()
-    .UsingFactory(Container.GetInstance);
-  
-  CaseExecution.Wrap<ResetDatabase>();
-  
-  Parameters.Add<FromAutoFixture>();
-}
-{% endhighlight %}
+    <div class="header eight columns">
+      <h3 style="color: white;">Conventional Testing for .NET</h3>
     </div>
     <hr />
     {{ content }}
