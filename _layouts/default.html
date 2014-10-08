@@ -43,27 +43,25 @@
       </ul>
     </div>
     
-    <div class="header four columns">
+    <div class="header eight columns">
       <img src="images/fixie_256.png" width="200" height="200" />
       <h3>Conventional Testing for .NET</h3>
     </div>
-    <div class="twelve columns">
+    <div class="eight columns">
 {% highlight csharp %}
-Classes
-    .NameEndsWith("Tests");
-
-Methods
-    .Where(method => method.IsVoid());
-
-ClassExecution
-    .CreateInstancePerCase()
+public IntegrationTestConvention
+{
+  Classes.NameEndsWith("Tests");
+  
+  Methods.Where(method => method.IsVoid());
+  
+  ClassExecution.CreateInstancePerCase()
     .UsingFactory(Container.GetInstance);
-
-CaseExecution
-    .Wrap<ResetDatabase>();
-
-Parameters
-    .Add<FromAutoFixture>();
+  
+  CaseExecution.Wrap<ResetDatabase>();
+  
+  Parameters.Add<FromAutoFixture>();
+}
 {% endhighlight %}
     </div>
     <hr />
