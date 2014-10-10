@@ -1,6 +1,6 @@
 body {
-	background: #fff;
-	font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  font: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
