@@ -4,7 +4,7 @@ title: Fixie
 ---
 <div class="one-third column">
 <p><strong>Write some tests.</strong></p>
-<p>In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'. We'll see how to customize Fixie with your own conventions later.</p>
+<p>In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'.</p>
 <p>Fixie has no built-in assertion library and never will. This example works when you use the third-party Should library.<p>
 </div>
 <div class="two-thirds column">
@@ -32,8 +32,7 @@ public class CalculatorTests
 
 <div class="one-third column">
 <p><strong>Tell Fixie how to find your tests.</strong></p>
-<p>Let's say you prefer NUnit-style [Test] attributes, instead of the default convention's assumptions.</p>
-<p>Tell Fixie what your tests look like, by including a custom convention in your test project. It'll supercede the default convention. With this convention in place, Fixie will only recognize [Test] methods as tests.</p>
+<p>Let's say you prefer NUnit-style [Test] attributes. Tell Fixie what your tests look like, by including a custom convention in your test project. It'll supercede the default convention.</p>
 </div>
 <div class="two-thirds column">
 {% highlight csharp %}
@@ -56,6 +55,9 @@ public class CustomConvention : Convention
 [AttributeUsage(AttributeTargets.Method)]
 public class TestAttribute : Attribute { }
 {% endhighlight %}
+</div>
+<div class="one-third column">
+With this convention in place, Fixie will only recognize [Test] methods as tests.
 </div>
 <div class="two-thirds column">
 {% highlight csharp %}
