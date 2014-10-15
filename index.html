@@ -86,46 +86,9 @@ public class CalculatorTests
 <hr />
 
 <div class="one-third column">
-<p>But I miss NUnit's [SetUp] and [TearDown], too. What if I want to prepare the system under test in one place, and clean up after it after the tests?</p>
-<p>Like xUnit.NET, Fixie's default is to construct one instance of your test class for each test.  The constructor is your setup, and Dispose() is your teardown.</p>
-</div>
-<div class="two-thirds column">
-{% highlight csharp %}
-using System;
-using Should;
-
-public class CalculatorTests : IDisposable
-{
-    private readonly Calculator calculator;
-
-    public CalculatorTests()
-    {
-        calculator = new Calculator();
-    }
-
-    public void ShouldAdd()
-    {
-        calculator.Add(2, 3).ShouldEqual(5);
-    }
-
-    public void ShouldSubtract()
-    {
-        calculator.Subtract(5, 3).ShouldEqual(2);
-    }
-
-    public void Dispose()
-    {
-        calculator.Dispose();
-    }
-}
-{% endhighlight %}
-</div>
-
-<hr />
-
-<div class="one-third column">
-<p>It reconstructs the class for every test!? What if I have costly state that could be shared across all the test in the class?</p>
-<p>Your custom convention can declare that construction of the test classes should happen once per class. Then the constructor is like NUnit's [FixtureSetUp] while the Dispose() method is like NUnit's [FixtureTearDown].</p>
+<p><strong>Tell Fixie how (and how often) to construct your test classes.</strong>
+<p>Like xUnit.NET, Fixie's default is to construct one instance of your test class for each test.  The zero-argument constructor is your setup, and Dispose() is your teardown.</p>
+<p>Your custom conventions can specify whether construction should happen once per test method (like xUnit.NET) or once per test class (like NUnit). Additionally, you can specify how instances of your test classes should be constructed.</p>
 </div>
 <div class="two-thirds column">
 {% highlight csharp %}
@@ -139,7 +102,80 @@ public class CustomConvention : Convention
             .NameEndsWith("Tests");
 
         ClassExecution
-            .CreateInstancePerClass();
+            .CreateInstancePerClass()
+            .UsingFactory(YourFavoriteIoCContainer.Get);
+    }
+}
+{% endhighlight %}
+</div>
+
+<hr />
+
+<div class="one-third column">
+<p><strong>Tell Fixie where test method parameters come from.</strong>
+<p>By default, Fixie has no idea where test method parameters come from.</p>
+<p>Your custom conventions can specify how to resolve test method paramters.</p>
+</div>
+<div class="two-thirds column">
+{% highlight csharp %}
+using Fixie;
+
+public class CustomConvention : Convention
+{
+    public CustomConvention()
+    {
+        Classes
+            .NameEndsWith("Tests");
+
+        Methods
+            .Where(method => method.IsVoid());
+
+        Parameters
+            .Add<FromAutoFixture>();
+    }
+
+    class FromAutoFixture : ParameterSource
+    {
+        public IEnumerable<object[]> GetParameters(MethodInfo method)
+        {
+            //Use AutoFixture to resolve each argument found on the MethodInfo
+        }
+    }
+}
+{% endhighlight %}
+</div>
+
+<hr />
+
+<div class="one-third column">
+<p><strong>Tell Fixie what to do before and after each part of the test class lifecycle.</strong></p>
+<p>Your custom conventions can specify custom behaviors around each test case (like NUnit `[SetUp]` and `[TearDown]`), at the start and end of each test class instance (like NUnit `[TestFixtureSetUp]` and `[TestFixtureTearDown]`), or before and after each test class.</p>
+</div>
+<div class="two-thirds column">
+{% highlight csharp %}
+using Fixie;
+
+public class CustomConvention : Convention
+{
+    public CustomConvention()
+    {
+        Classes
+            .NameEndsWith("Tests");
+
+        Methods
+            .Where(method => method.IsVoid());
+
+        CaseExecution
+            .Wrap<Transaction>();
+
+        class Transaction : CaseBehavior
+        {
+            public void Execute(Case context, Action next)
+            {
+                using (new TransactionScope())
+                    next();
+            }
+        }
     }
 }
 {% endhighlight %}
