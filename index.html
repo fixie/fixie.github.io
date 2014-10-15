@@ -3,33 +3,9 @@ layout: default
 title: Fixie
 ---
 <div class="one-third column">
-<p>I just want to write a test.</p>
-<p>In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'.</p>
-</div>
-<div class="two-thirds column">
-{% highlight csharp %}
-public class CalculatorTests
-{
-    public void ShouldAdd()
-    {
-        var calculator = new Calculator();
-        calculator.Add(2, 3).ShouldEqual(5);
-    }
-
-    public void ShouldSubtract()
-    {
-        var calculator = new Calculator();
-        calculator.Subtract(5, 3).ShouldEqual(2);
-    }
-}
-{% endhighlight %}
-</div>
-
-<hr/>
-
-<div class="one-third column">
-<p>That doesn't even compile! What is this, amateur hour?</p>
-<p>Oh, right. Fixie has no built-in assertion library and never will. This example works when you use the third-party Should library.<p>
+<p><strong>Write some tests.</strong></p>
+<p>In your test project, add a class whose name ends with 'Tests'. The public methods are assumed to be tests. This is the 'default convention'. We'll see how to customize Fixie with your own conventions later.</p>
+<p>Fixie has no built-in assertion library and never will. This example works when you use the third-party Should library.<p>
 </div>
 <div class="two-thirds column">
 {% highlight csharp %}
@@ -55,10 +31,11 @@ public class CalculatorTests
 <hr />
 
 <div class="one-third column">
-<p>But I'm used to NUnit and I like having explicit [Test] attributes.</p>
+<p><strong>Tell Fixie how to find your tests.</strong></p>
+<p>Let's say you prefer NUnit-style [Test] attributes, instead of the default convention's assumptions.</p>
 <p>Tell Fixie what your tests look like, by including a custom convention in your test project. It'll supercede the default convention. With this convention in place, Fixie will only recognize [Test] methods as tests.</p>
 </div>
-<div class="one-third column">
+<div class="two-thirds column">
 {% highlight csharp %}
 //CustomConvention.cs
 using System;
@@ -80,7 +57,7 @@ public class CustomConvention : Convention
 public class TestAttribute : Attribute { }
 {% endhighlight %}
 </div>
-<div class="one-third column">
+<div class="two-thirds column">
 {% highlight csharp %}
 //CalculatorTests.cs
 using Should;
