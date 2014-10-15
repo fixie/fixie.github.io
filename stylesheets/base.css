@@ -43,6 +43,10 @@ a, a:visited {
   text-decoration: none;
 }
 
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
 code {
   font: 85% Consolas, "Liberation Mono", Menlo, Courier, monospace;
   background-color: #f7f7f7;
