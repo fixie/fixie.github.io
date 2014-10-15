@@ -1,6 +1,6 @@
 html {
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 100%;
 }
 
 body {
@@ -43,7 +43,7 @@ a:hover, a:focus {
 }
 
 code {
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   background-color: #f7f7f7;
 }
 
