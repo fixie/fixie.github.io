@@ -2,8 +2,6 @@
 layout: documentation
 title: Fixie
 ---
-# Fixie
-
 Fixie is a .NET convention-based test framework similar to NUnit and xUnit, but with an emphasis on low-ceremony defaults and flexible customization.
 
 ## How do I install Fixie?
