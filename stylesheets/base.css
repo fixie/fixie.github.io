@@ -39,13 +39,12 @@ hr {
 }
 
 a, a:visited {
-  color: #333;
+  color: #4183c4;
   text-decoration: underline;
-  outline: 0;
 }
 
 a:hover, a:focus {
-  color: #000;
+  color: #4183c4;;
 }
 
 code {
