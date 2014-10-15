@@ -40,11 +40,7 @@ hr {
 
 a, a:visited {
   color: #4183c4;
-  text-decoration: underline;
-}
-
-a:hover, a:focus {
-  color: #4183c4;;
+  text-decoration: none;
 }
 
 code {
