@@ -22,7 +22,7 @@ First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
     
 5. Use the TestDriven.NET runner from within Visual Studio, using the same keyboard shortcuts you would use for NUnit tests.
 
-## Documentation
+## Table of Contents
 
 1. [Default Convention](default-convention)
 2. [Custom Conventions](custom-conventions)
