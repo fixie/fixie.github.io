@@ -9,8 +9,7 @@ title: Fixie - Quick Start
 
     PM> Install-Package Fixie
 3. Install a third-party assertion library.  The example below assumes you've installed [Should](https://nuget.org/packages/Should/).
-4. Add test classes and test cases to your testing project, following the [Default Convention](default-convention).
-    {% highlight csharp %}
+4. Add test classes and test cases to your testing project, following the [Default Convention](default-convention).{% highlight csharp %}
     using Should;
 
     public class CalculatorTests
