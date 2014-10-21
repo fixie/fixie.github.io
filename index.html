@@ -167,14 +167,14 @@ public class CustomConvention : Convention
 
         CaseExecution
             .Wrap<Transaction>();
+    }
 
-        class Transaction : CaseBehavior
+    class Transaction : CaseBehavior
+    {
+        public void Execute(Case context, Action next)
         {
-            public void Execute(Case context, Action next)
-            {
-                using (new TransactionScope())
-                    next();
-            }
+            using (new TransactionScope())
+                next();
         }
     }
 }
