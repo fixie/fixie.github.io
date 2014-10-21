@@ -12,7 +12,7 @@ Next, [Install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) an
 
 Install a third-party assertion library.  The example below assumes you've installed [Should](https://nuget.org/packages/Should/).
 
-Add test classes and test cases to your testing project, following the [Default Convention](default-convention):
+Add test classes and test cases to your testing project, following the [Default Convention](../default-convention):
 
 {% highlight csharp %}
 using Should;
@@ -33,7 +33,7 @@ public class CalculatorTests
 }
 {% endhighlight %}
 
-*To use a different style, you can create a [Custom Convention](custom-conventions).*
+*To use a different style, you can create a [Custom Convention](../custom-conventions).*
 
 Use the console runner (should be at `your-solution-dir/packages/Fixie.x.x.x/lib/netXX/`) from a command line to execute your tests:
 
