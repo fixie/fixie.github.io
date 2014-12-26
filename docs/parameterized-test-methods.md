@@ -83,6 +83,21 @@ public class CustomConvention : Convention
 }
 {% endhighlight %}
 
+The `Parameters.Add` method is overloaded.  Above, we specify a type name, `FromInputAttributes`, allowing Fixie to construct the instance for you when needed.  This overload naturally assumes a zero-argument constructor.  If you would rather construct an instance of your ParameterSource yourself, such as when it has a more interesting constructor, call the constructor yourself and pass the instance to the `Add` method:
+
+{% highlight csharp %}
+Parameters
+    .Add(new FromInputAttributes());
+}
+{% endhighlight %}
+
+Defining your parameter source as a class makes it easy to share logic across multiple conventions, but may be overkill for a single-use source for a single convention. You could instead define your `Input` attributes with a lambda expression:
+
+{% highlight csharp %}
+Parameters
+    .Add(method => method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters));
+{% endhighlight %}
+
 ### Generic Parameterized Tests
 
 When the system under test uses generics, you may want your parameterized test method to be generic as well. If a parameterized method happens to be a generic method, Fixie compares the runtime type of each incoming parameter value against the generic method declaration in order to pick the best concrete type for each generic type parameter.  This step is necessary because reflection does not allow you to simply pass an `object[]` of parameter values when invoking a generic method through its `MethodInfo`.  Fixie must first convert the generic method definition's `MethodInfo` into a more specific `MethodInfo` with the type arguments resolved.  For instance, consider what happens when we have a generic test method using the `[Input]` attribute as defined above:
