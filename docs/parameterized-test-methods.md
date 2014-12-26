@@ -99,6 +99,8 @@ Parameters
                          .Select(input => input.Parameters));
 {% endhighlight %}
 
+Although rare, multiple parameter sources may be added using multiple calls to the `Add` method.  In this case, **all** of the specified sources will contribute inputs to test methods.  Each parameter source is allowed, though, to yield zero object arrays for a given method, indicating no test case is applicable for that source / method.
+
 ### Generic Parameterized Tests
 
 When the system under test uses generics, you may want your parameterized test method to be generic as well. If a parameterized method happens to be a generic method, Fixie compares the runtime type of each incoming parameter value against the generic method declaration in order to pick the best concrete type for each generic type parameter.  This step is necessary because reflection does not allow you to simply pass an `object[]` of parameter values when invoking a generic method through its `MethodInfo`.  Fixie must first convert the generic method definition's `MethodInfo` into a more specific `MethodInfo` with the type arguments resolved.  For instance, consider what happens when we have a generic test method using the `[Input]` attribute as defined above:
