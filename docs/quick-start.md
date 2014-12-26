@@ -35,8 +35,6 @@ public class CalculatorTests
 
 *To use a different style, you can create a [Custom Convention](../custom-conventions).*
 
-Use the console runner (should be at `your-solution-dir/packages/Fixie.x.x.x/lib/netXX/`) from a command line to execute your tests:
+To run your tests from the command line or as part of your continuous integration build, use the [Console Runner](../console-runner).
 
-    `Fixie.Console.exe path/to/your/test/project.dll`
-    
-Use the TestDriven.NET runner from within Visual Studio, using the same keyboard shortcuts you would use for NUnit tests.
+To run your tests from within Visual Studio, use either the [TestDriven.NET Runner](../test-driven-net-runner) (requires a third-party plugin) or the [Visual Studio Runner](../visual-studio-runner).

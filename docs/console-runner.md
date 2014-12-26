@@ -1,7 +1,13 @@
 ---
 layout: documentation
-title: Fixie - Continuous Integration
+title: Fixie - Console Runner
 ---
+## How do I run my tests from the command line?
+
+Use the console runner (at `your-solution-dir/packages/Fixie.x.x.x/lib/netXX/`) from a command line to execute your tests:
+
+    Fixie.Console.exe path/to/your/test/project.dll
+
 ## How do I report results to my continuous integration server?
 
 By default, when the console runner is invoked by TeamCity, the console output is formatted so that TeamCity can detect individual test results for display.
@@ -9,7 +15,7 @@ By default, when the console runner is invoked by TeamCity, the console output i
 You can generate familiar NUnit- or xUnit-style XML reports by including an extra command line argument. These file formats are often supported by other CI tools:
 
     Fixie.Console.exe path/to/your/test/project.dll --NUnitXml TestResult.xml
-    
+
 or
 
     Fixie.Console.exe path/to/your/test/project.dll --XUnitXml TestResult.xml
