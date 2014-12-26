@@ -10,6 +10,8 @@ In a custom convention, use the `Parameters` property to add a `ParameterSource`
 
 You may want parameters to come from attributes, your IoC container, AutoFixture, metadata from the filesystem... anything that yields object arrays.
 
+Although rare, multiple parameter sources may be added using multiple calls to the `Add` method.  In this case, **all** of the specified sources will contribute inputs to test methods.  Each parameter source is allowed, though, to yield zero object arrays for a given method, indicating no test case is applicable for that source / method.
+
 ### Example - Parameters from Attributes
 
 Let's say you want test method parameters to come from `[Input]` attributes.  Define `InputAttribute`:
@@ -98,8 +100,6 @@ Parameters
     .Add(method => method.GetCustomAttributes<InputAttribute>(true)
                          .Select(input => input.Parameters));
 {% endhighlight %}
-
-Although rare, multiple parameter sources may be added using multiple calls to the `Add` method.  In this case, **all** of the specified sources will contribute inputs to test methods.  Each parameter source is allowed, though, to yield zero object arrays for a given method, indicating no test case is applicable for that source / method.
 
 ### Generic Parameterized Tests
 
