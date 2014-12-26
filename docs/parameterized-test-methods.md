@@ -95,7 +95,8 @@ Defining your parameter source as a class makes it easy to share logic across mu
 
 {% highlight csharp %}
 Parameters
-    .Add(method => method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters));
+    .Add(method => method.GetCustomAttributes<InputAttribute>(true)
+                         .Select(input => input.Parameters));
 {% endhighlight %}
 
 ### Generic Parameterized Tests
