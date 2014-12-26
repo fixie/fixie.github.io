@@ -83,7 +83,7 @@ public class CustomConvention : Convention
 }
 {% endhighlight %}
 
-The `Parameters.Add` method is overloaded.  Above, we specify a type name, `FromInputAttributes`, allowing Fixie to construct the instance for you when needed.  This overload naturally assumes a zero-argument constructor.  If you would rather construct an instance of your ParameterSource yourself, such as when it has a more interesting constructor, call the constructor yourself and pass the instance to the `Add` method:
+The `Parameters.Add` method is overloaded.  Above, we specify a type name, `FromInputAttributes`, allowing Fixie to construct the instance for you when needed.  This overload naturally assumes a zero-argument constructor.  If you would rather construct an instance of your parameter source yourself, such as when it has a more interesting constructor, call the constructor yourself and pass the instance to the `Add` method:
 
 {% highlight csharp %}
 Parameters
