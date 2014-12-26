@@ -4,9 +4,9 @@ title: Fixie - Parameterized Test Methods
 ---
 ## Parameterized Test Methods
 
-With the default convention, Fixie is unable to run parameterized test methods, because it doesn't know where those input parameters should come from.  In a custom convention, though, you can define the meaning of parameterized test methods.
+With the [default convention](../default-convention), Fixie is unable to run parameterized test methods, because it doesn't know where those input parameters should come from.  In a [custom convention](../custom-conventions), though, you can define the meaning of parameterized test methods.
 
-In a custom convention, use the `Parameters` property to add a `ParameterSource` as the origin of test method parameters.  Your parameter source provides `IEnumerable<object[]> GetParameters(MethodInfo method)`.  In other words, for any given method, your parameter source must produce a series of object arrays.  Each object array corresponds with a single call to the test method.
+In a custom convention, use the `Parameters` property to add a `ParameterSource` as the origin of test method parameters.  Your parameter source provides a single method, `IEnumerable<object[]> GetParameters(MethodInfo method)`.  In other words, for any given method, your parameter source must produce a series of object arrays.  Each object array corresponds with a single call to the test method.
 
 You may want parameters to come from attributes, your IoC container, AutoFixture, metadata from the filesystem... anything that yields object arrays.
 
