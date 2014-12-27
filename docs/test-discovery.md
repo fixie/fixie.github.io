@@ -30,8 +30,8 @@ namespace IntegrationTests
 Call a class containing tests a "test fixture." How do you tell Fixie which classes should be considered test fixtures? NUnit uses any class decorated with a `[TestFixture]` attribute. xUnit uses any class that contains at least one method decorated with a `[Fact]` attribute. You could decide to use a naming convention and say that test fixtures are any class ending with the word "Tests".
 
 {% highlight csharp %}
-	Classes
-		.NameEndsWith("Tests");
+Classes
+    .NameEndsWith("Tests");
 {% endhighlight %}
 
 In the constructor of your `Convention` class, use the `Classes` property to describe the rules for what makes a class a test fixture. There are some built-in methods for common scenarios; anything else can be defined via the `Where()` method.
@@ -45,9 +45,9 @@ For any additional rules, use the `Where()` method. It takes a `Func` that accep
 You can add multiple conditions by chaining the methods together. A class must satisfy *all* the conditions to be considered a test fixture (i.e., conditions are joined by *and*).
 
 {% highlight csharp %}
-	Classes
-		.NameEndsWith("Tests")
-		.Has<TestFixtureAttribute>;
+Classes
+    .NameEndsWith("Tests")
+    .Has<TestFixtureAttribute>;
 {% endhighlight %}
 
 Classes that meet all of your conditions will be considered test fixtures and will be instantiated according to the instructions you specify in the [test execution](../test-execution) section of your `Convention`.
@@ -57,8 +57,8 @@ Classes that meet all of your conditions will be considered test fixtures and wi
 The methods within a test fixture class are all candidates for being tests. Use the `Methods` property to tell Fixie how to determine which of those methods should be executed as tests.
 
 {% highlight csharp %}
-	Methods
-		.Where(method => method.IsVoid());
+Methods
+    .Where(method => method.IsVoid());
 {% endhighlight %}
 
 Similar to the way you defined rules for `Classes` above, `Methods` offers some built-in methods, in addition to a `Where()` method.
