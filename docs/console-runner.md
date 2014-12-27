@@ -30,7 +30,7 @@ If you opt into an XML report format under TeamCity, you may experience your tes
 
 Arbitrary key-value pairs can be passed via the command line and made available to your [custom conventions](../custom-conventions).
 
-For example, you may want to implement support for [NUnit-style "categories"](http://www.nunit.org/index.php?p=category&r=2.6.4). Here we define category attribute and a custom convention which looks for them on test methods:
+For example, you may want to implement support for [NUnit-style "categories"](http://www.nunit.org/index.php?p=category&r=2.6.4). Here we define category attributes and a custom convention which looks for them on test methods:
 
 {% highlight csharp %}
 [AttributeUsage(AttributeTargets.Method, Inherited = false)]
@@ -101,7 +101,7 @@ public class CalculatorTests
 }
 {% endhighlight %}
 
-When you run the tests like normal, the `Options` collection is empty, so of the possible test methods are treated as test methods and execute.  However, you may specify Options values at the command line using key=value pairs:
+When you run the tests like normal, the `Options` collection is empty, so all of the *possible* test methods are treated as test methods and executed.  However, you may specify Options values at the command line using key=value pairs:
 
     Fixie.Console.exe path/to/your/test/project.dll --parameter include=CategoryA
 
