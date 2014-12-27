@@ -4,11 +4,13 @@ title: Fixie - Parameterized Test Methods
 ---
 ## Parameterized Test Methods
 
-With the default convention, Fixie is unable to run parameterized test methods, because it doesn't know where those input parameters should come from.  In a custom convention, though, you can define the meaning of parameterized test methods.
+With the [default convention](../default-convention), Fixie is unable to run parameterized test methods, because it doesn't know where those input parameters should come from.  In a [custom convention](../custom-conventions), though, you can define the meaning of parameterized test methods.
 
-In a custom convention, use the `Parameters` property to add a `ParameterSource` as the origin of test method parameters.  Your parameter source provides `IEnumerable<object[]> GetParameters(MethodInfo method)`.  In other words, for any given method, your parameter source must produce a series of object arrays.  Each object array corresponds with a single call to the test method.
+In a custom convention, use the `Parameters` property to add a `ParameterSource` as the origin of test method parameters.  Your parameter source provides a single method, `IEnumerable<object[]> GetParameters(MethodInfo method)`.  In other words, for any given method, your parameter source must produce a series of object arrays.  Each object array corresponds with a single call to the test method.
 
 You may want parameters to come from attributes, your IoC container, AutoFixture, metadata from the filesystem... anything that yields object arrays.
+
+Although rare, multiple parameter sources may be added using multiple calls to the `Add` method.  In this case, **all** of the specified sources will contribute inputs to test methods.  Each parameter source is allowed, though, to yield zero object arrays for a given method, indicating no test case is applicable for that source / method.
 
 ### Example - Parameters from Attributes
 
@@ -81,6 +83,22 @@ public class CustomConvention : Convention
         }
     }
 }
+{% endhighlight %}
+
+The `Parameters.Add` method is overloaded.  Above, we specify a type name, `FromInputAttributes`, allowing Fixie to construct the instance for you when needed.  This overload naturally assumes a zero-argument constructor.  If you would rather construct an instance of your parameter source yourself, such as when it has a more interesting constructor, call the constructor yourself and pass the instance to the `Add` method:
+
+{% highlight csharp %}
+Parameters
+    .Add(new FromInputAttributes());
+}
+{% endhighlight %}
+
+Defining your parameter source as a class makes it easy to share logic across multiple conventions, but may be overkill for a single-use source for a single convention. You could instead define your `Input` attributes with a lambda expression:
+
+{% highlight csharp %}
+Parameters
+    .Add(method => method.GetCustomAttributes<InputAttribute>(true)
+                         .Select(input => input.Parameters));
 {% endhighlight %}
 
 ### Generic Parameterized Tests
