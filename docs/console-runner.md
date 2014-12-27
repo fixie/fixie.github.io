@@ -101,7 +101,7 @@ public class CalculatorTests
 }
 {% endhighlight %}
 
-When you run the tests like normal, the `Options` collection is empty, so all of the *possible* test methods are treated as test methods and executed.  However, you may specify Options values at the command line using key=value pairs:
+When you run the tests like normal, the `Options` collection is empty, so all of the *possible* test methods are treated as test methods and executed.  However, you may specify `Options` values at the command line using `key=value` pairs:
 
     Fixie.Console.exe path/to/your/test/project.dll --parameter include=CategoryA
 
