@@ -2,6 +2,8 @@
 layout: documentation
 title: Fixie - Test Discovery
 ---
+# Test Discovery
+
 ## Defining Test Discovery in Custom Conventions
 
 One reason to override the [default convention](../default-convention) with a [custom convention](../custom-conventions) is to define the rules for **test discovery**. In your `Convention` you will describe which classes are test fixtures and which methods are tests.
