@@ -2,7 +2,7 @@
 layout: documentation
 title: Fixie - Quick Start
 ---
-## How do I use Fixie?
+# Quick Start
 
 Create a Class Library project to house your test classes.
 

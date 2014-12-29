@@ -2,7 +2,7 @@
 layout: documentation
 title: Fixie - Reusing Conventions
 ---
-## Reusing Conventions
+# Reusing Conventions
 
 As described in [Custom Conventions](../custom-conventions), a custom subclass of `Convention` will reach out into the containing test assembly, looking for tests to execute.  This default behavior is useful in simple projects, but is insufficient in two scenarios:
 

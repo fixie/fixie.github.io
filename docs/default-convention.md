@@ -2,7 +2,7 @@
 layout: documentation
 title: Fixie - Default Convention
 ---
-## Default Convention
+# Default Convention
 
 When using the default convention, a test class is any concrete class in your test assembly whose name ends with "Tests".  Within such a test class, a test case is any public instance void method.  Additionally, test cases include public instance async methods returning `Task` or `Task<T>`.
 

@@ -2,6 +2,8 @@
 layout: documentation
 title: Fixie - Assertions
 ---
+# Assertions
+
 ## How do I make assertions?
 
 Most test frameworks such as NUnit or xUnit include their own assertion libraries so that you can make statements like this:

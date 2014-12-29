@@ -2,7 +2,7 @@
 layout: documentation
 title: Fixie - Custom Conventions
 ---
-## Custom Conventions
+# Custom Conventions
 
 Although useful for simple scenarios, the [default convention](../default-convention) may not meet your needs. Fortunately, you can replace it with your own.
 

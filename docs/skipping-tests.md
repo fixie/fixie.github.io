@@ -2,6 +2,8 @@
 layout: documentation
 title: Fixie - Skipping Tests
 ---
+# Skipping Tests
+
 ## How do I skip tests?
 
 Don't skip tests.

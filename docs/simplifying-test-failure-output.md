@@ -2,6 +2,8 @@
 layout: documentation
 title: Fixie - Simplifying Test Failure Output
 ---
+# Simplifying Test Failure Output
+
 ## How do I hide assertion library implementation details?
 
 NUnit, for instance, simplifies its own output when exceptions are thrown by its own assertion library infrastructure.  For instance, when NUnit's `Assert.AreEqual(int, int)` fails by throwing an exception, the output deliberately excludes stack trace lines *within* the implementation of `AreEqual`, and deliberately excludes the name of the exception type.  This filtering allows typical test failure output to remain as simple and direct as possible, pointing the developer to the line where their own test failed.

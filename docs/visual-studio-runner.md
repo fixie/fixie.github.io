@@ -2,6 +2,8 @@
 layout: documentation
 title: Fixie - Visual Studio Runner
 ---
+# Visual Studio Runner
+
 ## How do I run my tests with Visual Studio's built-in Test Explorer?
 
 The *Test Explorer* window is provided by most editions of Visual Studio.  The Test Explorer window allows you to run tests within the IDE, including red/green visual feedback for failed/passed test.
