@@ -45,10 +45,10 @@ Here, we're declaring that for each *Fixture* (in other words, each test class i
 
 Contrasting with NUnit, `CaseExecution` wrapping corresponds with NUnit's `[SetUp]` and `[TearDown]`, and 'FixtureExecution' wrapping corresponds with NUnit's `[FixtureSetUp]` and `[FixtureTearDown]`.
 
-Several sample conventions are available under the [Fixie.Samples](https://github.com/plioi/fixie/tree/master/src/Fixie.Samples) project:
+Several sample conventions are available under the [Fixie.Samples](https://github.com/fixie/fixie/tree/master/src/Fixie.Samples) project:
 
-* [Imitate NUnit](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/NUnitStyle/CustomConvention.cs)
-* [Imitate xUnit](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/xUnitStyle/CustomConvention.cs)
-* [Simplified NUnit for cleaner test inheritance](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/LowCeremony/CustomConvention.cs)
-* [Construct integration test classes with your IoC container](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/IoC/CustomConvention.cs)
-* [Support arbitrary command line flags such as NUnit-style categories](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/Categories/CustomConvention.cs)
+* [Imitate NUnit](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/NUnitStyle/CustomConvention.cs)
+* [Imitate xUnit](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/xUnitStyle/CustomConvention.cs)
+* [Simplified NUnit for cleaner test inheritance](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/LowCeremony/CustomConvention.cs)
+* [Construct integration test classes with your IoC container](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/IoC/CustomConvention.cs)
+* [Support arbitrary command line flags such as NUnit-style categories](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/Categories/CustomConvention.cs)

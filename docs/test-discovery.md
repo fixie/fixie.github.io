@@ -73,4 +73,4 @@ You can add multiple conditions by chaining the methods together. A method must 
 
 ### Sample Conventions
 
-Several sample conventions are available under the [Fixie.Samples](https://github.com/plioi/fixie/tree/master/src/Fixie.Samples) project. Check how the `Classes` and `Methods` properties are used in the constructors of the `CustomConvention` classes in the [NUnit style](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/NUnitStyle/CustomConvention.cs) and [xUnit style](https://github.com/plioi/fixie/blob/master/src/Fixie.Samples/xUnitStyle/CustomConvention.cs) examples.
+Several sample conventions are available under the [Fixie.Samples](https://github.com/fixie/fixie/tree/master/src/Fixie.Samples) project. Check how the `Classes` and `Methods` properties are used in the constructors of the `CustomConvention` classes in the [NUnit style](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/NUnitStyle/CustomConvention.cs) and [xUnit style](https://github.com/fixie/fixie/blob/master/src/Fixie.Samples/xUnitStyle/CustomConvention.cs) examples.
