@@ -20,7 +20,7 @@ You can generate familiar NUnit- or xUnit-style XML reports by including an extr
 
 or
 
-    Fixie.Console.exe path/to/your/test/project.dll --XUnitXml TestResult.xml
+    Fixie.Console.exe path/to/your/test/project.dll --xUnitXml TestResult.xml
 
 If you opt into an XML report format under TeamCity, you may experience your tests being doubly-reported: once from the XML file, and once from the TeamCity-specific console output formatting.  In this case, you can explicitly suppress the TeamCity console output:
 
@@ -101,10 +101,10 @@ public class CalculatorTests
 }
 {% endhighlight %}
 
-When you run the tests like normal, the `Options` collection is empty, so all of the *possible* test methods are treated as test methods and executed.  However, you may specify `Options` values at the command line using `key=value` pairs:
+When you run the tests like normal, the `Options` collection is empty, so all of the *possible* test methods are treated as test methods and executed.  However, you may specify `Options` values at the command line using `--key value` pairs:
 
-    Fixie.Console.exe path/to/your/test/project.dll --parameter include=CategoryA
+    Fixie.Console.exe path/to/your/test/project.dll --include CategoryA
 
 Now, the `Options` collection *will* contain a value for the key "include", and *only* methods with `[CategoryA]` will run.  The same key can be specified multiple times at the command line, and as a result the `Options` collection will make *all* of them available to your convention:
 
-    Fixie.Console.exe path/to/your/test/project.dll --parameter include=CategoryA --parameter include=CategoryB
+    Fixie.Console.exe path/to/your/test/project.dll --include CategoryA --include CategoryB
