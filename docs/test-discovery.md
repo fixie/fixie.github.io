@@ -29,22 +29,22 @@ namespace IntegrationTests
 
 ### Which Classes Contain Tests?
 
-Call a class containing tests a "test fixture." How do you tell Fixie which classes should be considered test fixtures? NUnit uses any class decorated with a `[TestFixture]` attribute. xUnit uses any class that contains at least one method decorated with a `[Fact]` attribute. You could decide to use a naming convention and say that test fixtures are any class ending with the word "Tests".
+How do you tell Fixie which classes should be considered test classes? NUnit uses any class decorated with a `[TestFixture]` attribute. xUnit uses any class that contains at least one method decorated with a `[Fact]` attribute. You could decide to use a naming convention and say that test classes are any class ending with the word "Tests".
 
 {% highlight csharp %}
 Classes
     .NameEndsWith("Tests");
 {% endhighlight %}
 
-In the constructor of your `Convention` class, use the `Classes` property to describe the rules for what makes a class a test fixture. There are some built-in methods for common scenarios; anything else can be defined via the `Where()` method.
+In the constructor of your `Convention` class, use the `Classes` property to describe the rules for what makes a class a test class. There are some built-in methods for common scenarios; anything else can be defined via the `Where()` method.
 
-`NameEndsWith(params string[] suffixes)` lets you specify one or more strings. Classes whose name ends with any of those strings will be test fixtures (i.e., the suffixes are joined by *or*).
+`NameEndsWith(params string[] suffixes)` lets you specify one or more strings. Classes whose name ends with any of those strings will be test classes (i.e., the suffixes are joined by *or*).
 
 `Has<TAttribute>()` looks for classes decorated with that attribute, while `HasOrInherits<TAttribute>()` picks up classes with that attribute plus classes that inherit from a class with that attribute.
 
-For any additional rules, use the `Where()` method. It takes a `Func` that accepts a `Type` (i.e., a class that is a candidate for being a test fixture) and returns a Boolean that will be true for types that are test fixtures.
+For any additional rules, use the `Where()` method. It takes a `Func` that accepts a `Type` (i.e., a class that is a candidate for being a test class) and returns a Boolean that will be true for types that are test classes.
 
-You can add multiple conditions by chaining the methods together. A class must satisfy *all* the conditions to be considered a test fixture (i.e., conditions are joined by *and*).
+You can add multiple conditions by chaining the methods together. A class must satisfy *all* the conditions to be considered a test class (i.e., conditions are joined by *and*).
 
 {% highlight csharp %}
 Classes
@@ -52,11 +52,11 @@ Classes
     .Has<TestFixtureAttribute>;
 {% endhighlight %}
 
-Classes that meet all of your conditions will be considered test fixtures and will be instantiated according to the instructions you specify in the [test execution](../test-execution) section of your `Convention`.
+Classes that meet all of your conditions will be considered test classes and will be instantiated according to the instructions you specify in the [test execution](../test-execution) section of your `Convention`.
 
 ### Which Methods Are Tests?
 
-The methods within a test fixture class are all candidates for being tests. Use the `Methods` property to tell Fixie how to determine which of those methods should be executed as tests.
+The methods within a test class are all candidates for being tests. Use the `Methods` property to tell Fixie how to determine which of those methods should be executed as tests.
 
 {% highlight csharp %}
 Methods
