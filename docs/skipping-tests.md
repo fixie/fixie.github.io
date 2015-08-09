@@ -62,7 +62,7 @@ public class CustomConvention : Convention
 }
 {% endhighlight %}
 
-The `Skip(...)` method can be called multiple times, where each call introduces a distinct rule for skipping tests. When the test runner is considering a given test case, each skip rule is applied in order until one of them flags the test case as skipped.  That rule's own reason string is used to describe the skip.  For instance, we could modify the above example to also emulate NUnit's own \[Explicit\] attribute, in which a test will be skipped unless it is explicitly selected for execution in isolation. We'd like the \[Explicit\] rule to take precedence over the normal \[Skip\] rule, so we declare the \[Explicit\] rule first:
+The `Skip(...)` method can be called multiple times, where each call introduces a distinct rule for skipping tests. When the test runner is considering a given test case, each skip rule is applied in order until one of them flags the test case as skipped.  That rule's own reason string is used to describe the skip.  For instance, we could modify the above example to also emulate NUnit's own `[Explicit]` attribute, in which a test will be skipped unless it is explicitly selected for execution in isolation. We'd like the `[Explicit]` rule to take precedence over the normal `[Skip]` rule, so we declare the `[Explicit]` rule first:
 
 {% highlight csharp %}
 [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
