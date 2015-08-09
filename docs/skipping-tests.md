@@ -61,3 +61,43 @@ public class CustomConvention : Convention
     }
 }
 {% endhighlight %}
+
+The `Skip(...)` method can be called multiple times, where each call introduces a distinct rule for skipping tests. When the test runner is considering a given test case, each skip rule is applied in order until one of them flags the test case as skipped.  That rule's own reason string is used to describe the skip.  For instance, we could modify the above example to also emulate NUnit's own \[Explicit\] attribute, in which a test will be skipped unless it is explicitly selected for execution in isolation. We'd like the \[Explicit\] rule to take precedence over the normal \[Skip\] rule, so we declare the \[Explicit\] rule first:
+
+{% highlight csharp %}
+[AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
+public class SkipAttribute : Attribute
+{
+    public string Reasons { get; set; }
+}
+
+[AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
+public class ExplicitAttribute : Attribute { }
+
+public class CustomConvention : Convention
+{
+    public CustomConvention()
+    {
+        Classes
+            .NameEndsWith("Tests");
+     
+        Methods
+            .Where(method => method.IsVoid());
+     
+        CaseExecution
+            .Skip(SkipDueToExplicitAttribute,
+                  @case => "[Explicit] tests run only when they are individually selected for execution.")
+            .Skip(@case => @case.Method.HasOrInherits<SkipAttribute>(),
+                  @case => @case.Method.GetCustomAttribute<SkipAttribute>(true).Reason);
+    }
+    
+    bool SkipDueToExplicitAttribute(Case @case)
+    {
+        var method = @case.Method;
+
+        var isMarkedExplicit = method.Has<ExplicitAttribute>();
+
+        return isMarkedExplicit && TargetMember != method;
+    }
+}
+{% endhighlight %}
