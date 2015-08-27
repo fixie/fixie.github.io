@@ -63,3 +63,9 @@ pre {
   padding: 1em;
   overflow-x: auto;
 }
+
+blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
