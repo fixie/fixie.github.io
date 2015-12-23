@@ -102,7 +102,7 @@ public class CustomConvention : Convention
 }
 {% endhighlight %}
 
-Defining multiple skip rules with these `Func`-accepting overloads can make a convention class hard to read. The `Skip(...)` method has overloads which allow you to specify custom SkipBehavior classes, each of which defines the skip predicate and skip reason generaton as normal methods intead of `Func`s.  We separate concerns and keep our convention class easier to read at a glance:
+Defining multiple skip rules with these `Func`-accepting overloads can make a convention class hard to read. The `Skip(...)` method has overloads which allow you to specify custom `SkipBehavior` classes, each of which defines the skip predicate and skip reason generator as normal methods intead of `Func`s.  We separate concerns and keep our convention class easier to read at a glance:
 
 {% highlight csharp %}
 [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
