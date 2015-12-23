@@ -101,3 +101,63 @@ public class CustomConvention : Convention
     }
 }
 {% endhighlight %}
+
+Defining multiple skip rules with these `Func`-accepting overloads can make a convention class hard to read. The `Skip(...)` method has overloads which allow you to specify custom SkipBehavior classes, each of which defines the skip predicate and skip reason generaton as normal methods intead of `Func`s.  We separate concerns and keep our convention class easier to read at a glance:
+
+{% highlight csharp %}
+[AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
+public class SkipAttribute : Attribute
+{
+    public string Reasons { get; set; }
+}
+
+[AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
+public class ExplicitAttribute : Attribute { }
+
+public class CustomConvention : Convention
+{
+    public CustomConvention()
+    {
+        Classes
+            .NameEndsWith("Tests");
+     
+        Methods
+            .Where(method => method.IsVoid());
+     
+        CaseExecution
+            .Skip(new SkipDueToExplicitAttribute(TargetMember))
+            .Skip<SkipDueToSkipAttribute>();
+    }
+}
+
+class SkipDueToExplicitAttribute : SkipBehavior
+{
+    private readonly MemberInfo _targetMember;
+
+    public SkipDueToExplicitAttribute(MemberInfo targetMember)
+    {
+        _targetMember = targetMember;
+    }
+
+    public override bool SkipCase(Case @case)
+    {
+        var method = @case.Method;
+
+        var isMarkedExplicit = method.Has<ExplicitAttribute>();
+
+        return isMarkedExplicit && _targetMember != method;
+    }
+
+    public override string GetSkipReason(Case @case)
+        => "[Explicit] tests run only when they are individually selected for execution.";
+}
+
+class SkipDueToSkipAttribute : SkipBehavior
+{
+    public override bool SkipCase(Case @case)
+        => return @case.Method.HasOrInherits<SkipAttribute>();
+
+    public override string GetSkipReason(Case @case)
+        => @case.Method.GetCustomAttribute<SkipAttribute>().Reason;
+}
+{% endhighlight %}
