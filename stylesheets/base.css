@@ -24,6 +24,18 @@ body {
   align: center;
 }
 
+#badges {
+  padding:0px;
+  text-align:center;
+}
+
+#badges li {
+  display: inline;
+  margin: 0 20px 0 0;
+  margin-bottom: 130px;
+  align: center;
+}
+
 h1 {
   font-size: 2.25em;
   border-bottom: 1px solid #000;
