@@ -4,7 +4,7 @@ title: Fixie - Test Execution
 ---
 # Test Execution
 
-One reason to override the [default convention](../default-convention) with a [custom convention](../custom-conventions) is to define the rules for **test execution**. In your `Convention` you will describe how (and how often) to construct your test classes, as well as what to do before and after each part of the test class lifecycle.
+One reason to override the [default convention](../default-convention) with a [custom convention](../custom-conventions) is to define the rules for **test execution**. In your `Convention` you will describe how (and how often) to construct your test classes, as well as what to do before and after each part of the [test class lifecycle](../test-lifecycle).
 
 For instance, let's say we want all of our integration tests to be automatically wrapped in a database transaction.  Beside our tests, we place a custom convention class:
 
