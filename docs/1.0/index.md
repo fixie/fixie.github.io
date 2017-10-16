@@ -1,4 +1,5 @@
 ---
+redirect_from: "/docs/"
 layout: documentation
 title: Fixie
 ---

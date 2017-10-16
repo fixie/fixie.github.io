@@ -1,3 +1,5 @@
 baseurl: "/fixie.github.io"
 permalink: pretty
 highlighter: rouge
+plugins:
+  - jekyll-redirect-from
