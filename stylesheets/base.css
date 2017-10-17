@@ -105,8 +105,8 @@ blockquote {
   display: block;
 }
 
-.dropdown .dropdown-menu li {
-  margin: 2px 0;
+#navigation li .dropdown > .dropdown-menu > li {
+  margin: 4px 0;
 }
 
 /** Button Styles **/
