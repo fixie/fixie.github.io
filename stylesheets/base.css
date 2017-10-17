@@ -118,3 +118,11 @@ blockquote {
   padding: 0.2em 0.8em;
   text-decoration: none;
 }
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #4183c4;
+}
