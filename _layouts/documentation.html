@@ -34,8 +34,15 @@
           <ul id="navigation">
             <li><a href="https://github.com/fixie/fixie">github</a></li>
             <li><a href="http://www.nuget.org/packages/fixie">nuget</a></li>
-            <li><a href="{{ "/docs/1.0" | relative_url }}">docs_v1</a></li>
-            <li><a href="{{ "/docs/2.0" | relative_url }}">docs_v2</a></li>
+            <li>
+              <div class="dropdown">
+                <button>docs</button>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ "/docs/1.0" | relative_url }}">1.0</a></li>
+                  <li><a href="{{ "/docs/2.0" | relative_url }}">2.0</a></li>
+                </ul>
+              </div>
+            </li>
             <li><a href="https://github.com/fixie/fixie.github.io/blob/master/{{ page.path }}" target="_blank">edit this page</a></li>
           </ul>
         </div>

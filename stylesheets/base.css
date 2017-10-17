@@ -81,3 +81,40 @@ blockquote {
   color: #777;
   border-left: 4px solid #ddd;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  display: none;
+  margin: 0;
+
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/** Button Styles **/
+.dropdown button {
+  border: none;
+  background: none;
+  color: #4183c4;
+  margin: 0;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+}
+
+/** List Item Styles **/
+.dropdown a {
+  display: block;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+}
