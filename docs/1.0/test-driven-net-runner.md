@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - TestDriven.NET Runner
 ---
 # TestDriven.NET Runner
