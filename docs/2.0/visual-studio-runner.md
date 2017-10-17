@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Visual Studio Runner
 ---
 # Visual Studio Runner

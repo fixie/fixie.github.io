@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Parameterized Test Methods
 ---
 # Parameterized Test Methods

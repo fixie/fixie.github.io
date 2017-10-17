@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Quick Start
 ---
 # Quick Start
