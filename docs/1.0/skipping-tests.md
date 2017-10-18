@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Skipping Tests
 ---
 # Skipping Tests

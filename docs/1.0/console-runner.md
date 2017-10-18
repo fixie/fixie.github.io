@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Console Runner
 ---
 # Console Runner

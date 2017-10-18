@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Simplifying Test Failure Output
 ---
 # Simplifying Test Failure Output

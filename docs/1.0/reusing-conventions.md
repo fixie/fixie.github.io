@@ -1,5 +1,4 @@
 ---
-layout: documentation
 title: Fixie - Reusing Conventions
 ---
 # Reusing Conventions
