@@ -138,7 +138,7 @@ class SkipDueToExplicitAttribute : SkipBehavior
         _targetMember = targetMember;
     }
 
-    public override bool SkipCase(Case @case)
+    public bool SkipCase(Case @case)
     {
         var method = @case.Method;
 
@@ -147,16 +147,16 @@ class SkipDueToExplicitAttribute : SkipBehavior
         return isMarkedExplicit && _targetMember != method;
     }
 
-    public override string GetSkipReason(Case @case)
+    public string GetSkipReason(Case @case)
         => "[Explicit] tests run only when they are individually selected for execution.";
 }
 
 class SkipDueToSkipAttribute : SkipBehavior
 {
-    public override bool SkipCase(Case @case)
+    public bool SkipCase(Case @case)
         => return @case.Method.HasOrInherits<SkipAttribute>();
 
-    public override string GetSkipReason(Case @case)
+    public string GetSkipReason(Case @case)
         => @case.Method.GetCustomAttribute<SkipAttribute>().Reason;
 }
 {% endhighlight %}
