@@ -14,7 +14,6 @@ Fixie is a .NET convention-based test framework similar to NUnit and xUnit, but 
     * [Skipping Tests](skipping-tests)
     * [Defining Test Execution](test-execution)
     * [Simplifying Test Failure Output](simplifying-test-failure-output)
-    * [Reusing Conventions](reusing-conventions)
 * [Assertions](assertions)
 * [Console Runner](console-runner)
 * [TestDriven.NET Runner](test-driven-net-runner)
