@@ -10,10 +10,3 @@ defaults:
       layout: "documentation"
       docversion: "1.0"
       codetag: "v1.0.3"
-  -
-    scope:
-      path: "docs/2.0"
-    values:
-      layout: "documentation"
-      docversion: "2.0"
-      codetag: "develop"
