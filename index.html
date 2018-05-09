@@ -87,8 +87,7 @@ title: Fixie
     
         static void SetUp(object instance)
         {
-            foreach (var q in instance.GetType().GetMethods().Where(x => x.Name == "SetUp"))
-                q.Execute(instance);
+            instance.GetType().GetMethod("SetUp")?.Execute(instance);
         }
     }
     {% endhighlight %}
