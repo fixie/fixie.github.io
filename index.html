@@ -53,6 +53,9 @@ title: Fixie
     }
     {% endhighlight %}
     </div>
+
+    <hr />
+
     <div class="one-third column">
     <p><strong>Tell Fixie how to run your tests.</strong></p>
     <p>Next, we need to customize the test execution phase, calling the SetUp() method at an appropriate
@@ -101,6 +104,24 @@ title: Fixie
     </div>
     <div class="two-thirds column">
     {% highlight csharp %}
-    
+    public class CustomerSearcherTests
+    {
+        public async SetUp()
+        {
+            await SetUpSampleCustomersAsync(/* ... */);
+        }
+
+        public void ShouldGetCustomersByName()
+        {
+            var searcher = new CustomerSearcher();
+            searcher.SerchByName("Smith").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson", "John Smith" });
+        }
+
+        public void ShouldGetCustomersByAddress()
+        {
+            var searcher = new CustomerSearcher();
+            searcher.SerchByName("Elm Street").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson" });
+        }
+    }
     {% endhighlight %}
     </div>
