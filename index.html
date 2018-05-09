@@ -59,7 +59,7 @@ title: Fixie
     <div class="one-third column">
     <p><strong>Tell Fixie how to run your tests.</strong></p>
     <p>Next, we need to customize the test execution phase, calling the SetUp() method at an appropriate
-    moment in the test class lifecycle. To customize the test discovery phase, implement Execution.</p>
+    moment in the test class lifecycle. To customize the test execution phase, implement Execution.</p>
     </div>
     <div class="two-thirds column">
     {% highlight csharp %}
@@ -106,7 +106,7 @@ title: Fixie
     {% highlight csharp %}
     public class CustomerSearcherTests
     {
-        public async SetUp()
+        public async Task SetUp()
         {
             await SetUpSampleCustomersAsync(/* ... */);
         }
@@ -120,7 +120,7 @@ title: Fixie
         public void ShouldGetCustomersByAddress()
         {
             var searcher = new CustomerSearcher();
-            searcher.SerchByName("Elm Street").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson" });
+            searcher.SerchByAddress("Elm Street").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson" });
         }
     }
     {% endhighlight %}
