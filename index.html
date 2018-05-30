@@ -113,13 +113,13 @@ title: Fixie
         public void ShouldGetCustomersByName()
         {
             var searcher = new CustomerSearcher();
-            searcher.SerchByName("Smith").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson", "John Smith" });
+            searcher.SearchByName("Smith").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson", "John Smith" });
         }
 
         public void ShouldGetCustomersByAddress()
         {
             var searcher = new CustomerSearcher();
-            searcher.SerchByAddress("Elm Street").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson" });
+            searcher.SearchByAddress("Elm Street").Select(x => x.FullName).ShouldBe(new[] { "Sally Johnson" });
         }
     }
     {% endhighlight %}
